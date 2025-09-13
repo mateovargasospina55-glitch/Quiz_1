@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Flexbox - Herencia CSS</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Clase principal */
+        .container {
+            width: 50%;
+            height: 500px;
+            background-color: aqua;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hijo {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(255, 64, 0);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        /* Herencia */
+        
+        .container-layout {
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: stretch;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        /* Elemento E - uso flex-basis y flex-grow */
+        .elemento-e {
+            /* Heredo de .hijo y modifico los elementos necesarios */
+            flex-basis: 120px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            background-color: #b19cd9;
+            width: auto;
+            height: auto;
+            margin-right: 0;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Contenedor derecho - uso flex-grow para ocupar el espacio restante */
+        .columna-derecha {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: 15px;
+        }
+
+        /* Fila superior para C y D - uso space-between */
+        .fila-superior {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 15px;
+            height: 80px;
+        }
+
+        /* Elementos C y D - uso flex para una distribución igualitaria */
+        .elemento-c, .elemento-d {
+            flex: 1 1 0;
+            background-color: #b19cd9;
+            margin-right: 0;
+            margin-bottom: 0;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Elemento B - uso flex-basis para establecer una altura específica */
+        .elemento-b {
+            flex-basis: 120px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            background-color: #b19cd9;
+            width: auto;
+            height: auto;
+            margin-right: 0;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Elemento A - uso flex-grow para ocupar el espacio restante */
+        .elemento-a {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 0;
+            background-color: #d9a5d9;
+            width: auto;
+            height: auto;
+            margin-right: 0;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Contenedor principal con una posición relativa */
+        .contenedor-principal {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-principal">
+        <div class="numero-3">3</div>
+        <div class="container container-layout">
+            <!-- Elemento E - columna izquierda -->
+            <div class="hijo elemento-e">E</div>
+            
+            <!-- Columna derecha con C, D, B, A -->
+            <div class="columna-derecha">
+                <!-- Fila superior con C y D -->
+                <div class="fila-superior">
+                    <div class="hijo elemento-c">C</div>
+                    <div class="hijo elemento-d">D</div>
+                </div>
+                
+                <!-- Elemento B -->
+                <div class="hijo elemento-b">B</div>
+                
+                <!-- Elemento A -->
+                <div class="hijo elemento-a">A</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
